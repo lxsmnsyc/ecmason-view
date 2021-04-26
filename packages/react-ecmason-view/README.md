@@ -4,6 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-ecmason-view.svg)](https://www.npmjs.com/package/react-ecmason-view) [![JavaScript Style Guide](https://badgen.net/badge/code%20style/airbnb/ff5a5f?icon=airbnb)](https://github.com/airbnb/javascript)
 
+![image](https://user-images.githubusercontent.com/4783372/116081677-212c7400-a6cd-11eb-9c9e-11351b652dcb.png)
+
+
 ## Install
 
 ```bash
@@ -105,6 +108,10 @@ styles.reset()
 ### Custom Tags
 
 To be added.
+
+## Prior Art
+
+- [`react-json-view`](https://github.com/mac-s-g/react-json-view)
 
 ## License
 
