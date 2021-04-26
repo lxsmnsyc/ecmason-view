@@ -15,12 +15,12 @@ function SizeInternal({ value }: SizeProps): JSX.Element {
     fontSize: '11px',
     marginRight: '4px',
     opacity: '0.8',
-    color: theme.base04,
+    color: theme.base05,
     cursor: 'default',
     fontWeight: 'bold',
     padding: '1px 2px',
     borderRadius: '3px',
-    backgroundColor: theme.base02,
+    backgroundColor: theme.base01,
   }), theme);
 
   return (

@@ -8,7 +8,7 @@ export default function Ellipsis(): JSX.Element {
 
   const style = useMemoCondition(() => createStyle({
     display: 'inline-block',
-    color: theme.base09,
+    color: theme.base05,
     fontSize: '18px',
     lineHeight: '10px',
     cursor: 'pointer',

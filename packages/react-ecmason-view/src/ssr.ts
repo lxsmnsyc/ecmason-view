@@ -25,47 +25,12 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
-import React from 'react';
-import { registerTag } from '../TagRenderer';
-import { useCreateStyle, useTheme } from '../ThemeProvider';
+import cxs from 'cxs';
 
-registerTag(
-  'INF',
-  () => {
-    const theme = useTheme();
-    const createStyle = useCreateStyle();
+export function reset(): void {
+  cxs.reset();
+}
 
-    const style = useMemoCondition(() => createStyle({
-      display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
-    }), theme);
-
-    return (
-      <div className={style}>
-        Infinity
-      </div>
-    );
-  },
-);
-
-registerTag(
-  '-INF',
-  () => {
-    const theme = useTheme();
-    const createStyle = useCreateStyle();
-
-    const style = useMemoCondition(() => createStyle({
-      display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
-    }), theme);
-
-    return (
-      <div className={style}>
-        -Infinity
-      </div>
-    );
-  },
-);
+export function render(): string {
+  return cxs.css();
+}

@@ -25,47 +25,21 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
-import React from 'react';
-import { registerTag } from '../TagRenderer';
-import { useCreateStyle, useTheme } from '../ThemeProvider';
+import { addTransformer } from 'ecmason';
 
-registerTag(
-  'INF',
-  () => {
-    const theme = useTheme();
-    const createStyle = useCreateStyle();
-
-    const style = useMemoCondition(() => createStyle({
-      display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
-    }), theme);
-
-    return (
-      <div className={style}>
-        Infinity
-      </div>
-    );
+addTransformer<Promise<any>, null>('object', {
+  tag: 'PROMISE',
+  check: (value): value is Promise<any> => value instanceof Promise,
+  serialize: () => null,
+  deserialize: () => Promise.resolve(),
+});
+addTransformer<(...args: any[]) => any, string>('primitive', {
+  tag: 'FUNCTION',
+  check: (v): v is ((...args: any[]) => any) => typeof v === 'function',
+  serialize: (v) => `ƒ ${v.name} () { }`,
+  deserialize: (v) => {
+    const newFunc = () => { /* noop */ };
+    newFunc.name = v;
+    return newFunc;
   },
-);
-
-registerTag(
-  '-INF',
-  () => {
-    const theme = useTheme();
-    const createStyle = useCreateStyle();
-
-    const style = useMemoCondition(() => createStyle({
-      display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
-    }), theme);
-
-    return (
-      <div className={style}>
-        -Infinity
-      </div>
-    );
-  },
-);
+});

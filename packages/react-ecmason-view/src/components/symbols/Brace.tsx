@@ -3,7 +3,7 @@ import React from 'react';
 import { useCreateStyle, useTheme } from '../ThemeProvider';
 
 interface BraceProps {
-  value: '[' | ']' | '{' | '}';
+  value: '[' | ']' | '{' | '}' | '(' | ')';
   indent: boolean;
 }
 
@@ -22,7 +22,7 @@ export default function Brace({ value, indent }: BraceProps): JSX.Element {
     indent,
   }, (prev, next) => (
     !Object.is(prev.theme, next.theme)
-    && !Object.is(prev.indent, next.indent)
+    || !Object.is(prev.indent, next.indent)
   ));
 
   return (

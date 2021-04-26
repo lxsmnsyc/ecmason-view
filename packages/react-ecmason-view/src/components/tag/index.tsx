@@ -1,11 +1,13 @@
 import './ArrayTag';
 import './BigIntTag';
 import './DateTag';
+import './FunctionTag';
 import './InfinityTag';
 import './MapTag';
 import './NaNTag';
 import './ObjectTag';
 import './PrimitiveTag';
+import './PromiseTag';
 import './RegExpTag';
 import './SetTag';
 import './UndefinedTag';

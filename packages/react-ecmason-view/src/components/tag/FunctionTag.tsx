@@ -27,44 +27,25 @@
  */
 import { useMemoCondition } from '@lyonph/react-hooks';
 import React from 'react';
-import { registerTag } from '../TagRenderer';
-import { useCreateStyle, useTheme } from '../ThemeProvider';
+import DataTypeLabel from '../DataTypeLabel';
+import { registerTag, TagProps } from '../TagRenderer';
+import { useTheme, useCreateStyle } from '../ThemeProvider';
 
 registerTag(
-  'INF',
-  () => {
+  'FUNCTION',
+  ({ value }: TagProps<string>) => {
     const theme = useTheme();
     const createStyle = useCreateStyle();
 
     const style = useMemoCondition(() => createStyle({
       display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
+      color: theme.base0A,
     }), theme);
 
     return (
       <div className={style}>
-        Infinity
-      </div>
-    );
-  },
-);
-
-registerTag(
-  '-INF',
-  () => {
-    const theme = useTheme();
-    const createStyle = useCreateStyle();
-
-    const style = useMemoCondition(() => createStyle({
-      display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
-    }), theme);
-
-    return (
-      <div className={style}>
-        -Infinity
+        <DataTypeLabel type="function" />
+        {value}
       </div>
     );
   },

@@ -31,40 +31,20 @@ import { registerTag } from '../TagRenderer';
 import { useCreateStyle, useTheme } from '../ThemeProvider';
 
 registerTag(
-  'INF',
+  'PROMISE',
   () => {
     const theme = useTheme();
     const createStyle = useCreateStyle();
 
     const style = useMemoCondition(() => createStyle({
       display: 'inline-block',
-      color: theme.base08,
+      color: theme.base0A,
       fontWeight: 'bold',
     }), theme);
 
     return (
       <div className={style}>
-        Infinity
-      </div>
-    );
-  },
-);
-
-registerTag(
-  '-INF',
-  () => {
-    const theme = useTheme();
-    const createStyle = useCreateStyle();
-
-    const style = useMemoCondition(() => createStyle({
-      display: 'inline-block',
-      color: theme.base08,
-      fontWeight: 'bold',
-    }), theme);
-
-    return (
-      <div className={style}>
-        -Infinity
+        Promise
       </div>
     );
   },

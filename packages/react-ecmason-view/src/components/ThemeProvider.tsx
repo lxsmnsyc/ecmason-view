@@ -1,9 +1,10 @@
 import cxs, { CSSObject } from 'cxs';
 import createModel, { createSelector, createValue } from 'react-scoped-model';
-import THEMES, { Base16Theme } from '../base16/themes';
+import { Base16Scheme } from 'base16-ts';
+import DEFAULT_SCHEME from '../default-scheme';
 
 export interface ThemeProviderProps {
-  theme?: Base16Theme;
+  theme?: Base16Scheme;
   displayDataTypes?: boolean;
   collapseStringsAfterLength?: number;
   quotesOnKeys?: boolean;
@@ -13,7 +14,7 @@ export interface ThemeProviderProps {
 }
 
 export interface ThemeProviderState {
-  theme: Base16Theme;
+  theme: Base16Scheme;
   displayDataTypes: boolean;
   quotesOnKeys: boolean;
   displayArrayKeys: boolean;
@@ -25,7 +26,7 @@ export interface ThemeProviderState {
 
 export const ThemeProvider = createModel(
   (props: ThemeProviderProps): ThemeProviderState => ({
-    theme: props.theme ?? THEMES.default,
+    theme: props.theme ?? DEFAULT_SCHEME,
     displayDataTypes: props.displayDataTypes ?? true,
     quotesOnKeys: props.quotesOnKeys ?? true,
     displayArrayKeys: props.displayArrayKeys ?? true,
