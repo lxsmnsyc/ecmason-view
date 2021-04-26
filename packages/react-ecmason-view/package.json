@@ -58,5 +58,19 @@
     "cxs": "^6.2.0",
     "ecmason": "^0.1.3",
     "react-scoped-model": "^2.0.2"
-  }
+  },
+  "description": "React component for inspecting modern ES objects",
+  "repository": {
+    "url": "https://github.com/lxsmnsyc/ecmason-view.git",
+    "type": "git"
+  },
+  "homepage": "https://github.com/LXSMNSYC/ecmason-view/tree/main/packages/react-ecmason-view",
+  "bugs": {
+    "url": "https://github.com/lxsmnsyc/ecmason-view/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Alexis Munsayac",
+  "private": false
 }
