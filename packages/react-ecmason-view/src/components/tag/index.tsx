@@ -1,6 +1,7 @@
 import './ArrayTag';
 import './BigIntTag';
 import './DateTag';
+import './ErrorTag';
 import './FunctionTag';
 import './InfinityTag';
 import './MapTag';

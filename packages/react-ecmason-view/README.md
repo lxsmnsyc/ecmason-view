@@ -17,6 +17,8 @@ yarn add react-ecmason-view
 ## Usage
 
 ```tsx
+import { View } from 'react-ecmason-view';
+
 // Supports Map
 const a = new Map([
   // Supports RegExp and Date 
@@ -43,6 +45,8 @@ const object = {
     -0,
     null,
   ],
+  // Support for Errors
+  d: new SyntaxError('This is an error'),
 };
 
 // Support for recursion

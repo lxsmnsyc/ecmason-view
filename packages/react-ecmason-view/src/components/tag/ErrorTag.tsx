@@ -25,40 +25,55 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { addTransformer, withRecursionTracker } from 'ecmason';
-
-addTransformer<Promise<any>, null>('object', {
-  tag: 'PROMISE',
-  check: (value): value is Promise<any> => value instanceof Promise,
-  serialize: () => null,
-  deserialize: () => Promise.resolve(),
-});
-addTransformer<(...args: any[]) => any, string>('primitive', {
-  tag: 'FUNCTION',
-  check: (v): v is ((...args: any[]) => any) => typeof v === 'function',
-  serialize: (v) => `ƒ ${v.name} () { }`,
-  deserialize: (v) => {
-    const newFunc = () => { /* noop */ };
-    newFunc.name = v;
-    return newFunc;
-  },
-});
+import { RecursiveRef } from 'ecmason';
+import React from 'react';
+import ContentContainer from '../ContentContainer';
+import MetaInfo from '../MetaInfo';
+import Brace from '../symbols/Brace';
+import { registerTag, TagProps, TagRenderer } from '../TagRenderer';
 
 interface ErrorECMASon {
   name: string;
   message: string;
 }
 
-addTransformer('object', withRecursionTracker<Error, ErrorECMASon>({
-  tag: 'ERROR',
-  check: (v): v is Error => v instanceof Error,
-  serialize: (v) => ({
-    name: v.name,
-    message: v.message,
-  }),
-  deserialize: (v) => {
-    const error = new Error(v.message);
-    error.name = v.name;
-    return error;
+registerTag(
+  'RECURSIVE(ERROR)',
+  ({ value, expanded }: TagProps<RecursiveRef<ErrorECMASon> | number>) => (
+    <MetaInfo
+      value={value}
+      expanded={expanded}
+      type="Error"
+    />
+  ),
+  ({ value, expanded }) => {
+    if (typeof value === 'number') {
+      return <></>;
+    }
+    if (typeof value.value === 'object') {
+      if (!expanded || Object.keys(value.value).length === 0) {
+        return <></>;
+      }
+      return (
+        <>
+          <ContentContainer>
+            <TagRenderer
+              parent="object"
+              name="name"
+              tag="PRIMITIVE"
+              value={value.value.name}
+            />
+            <TagRenderer
+              parent="object"
+              name="message"
+              tag="PRIMITIVE"
+              value={value.value.message}
+            />
+          </ContentContainer>
+          <Brace value="}" indent />
+        </>
+      );
+    }
+    return <></>;
   },
-}));
+);

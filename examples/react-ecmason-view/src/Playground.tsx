@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-ecmason-view';
-import { schemes } from 'base16-ts';
+import { Schemes, schemes } from 'base16-ts';
 
-const a = new Map([
+const a = new Map<any, any>([
   [/Hello World/, new Date()],
   [Promise.resolve(), function exampleCallback() {}],
 ]);
@@ -26,10 +26,14 @@ const object = {
     -0,
     null,
   ],
+  // Support for errors
+  d: new SyntaxError('This is an error'),
 };
 
 // Support for recursion
 a.set('recursive', object);
+
+const base16schemes: Schemes = schemes;
 
 export default function Playground(): JSX.Element {
   const [scheme, setScheme] = useState('defaultDark');
@@ -38,7 +42,7 @@ export default function Playground(): JSX.Element {
   const [displayObjectSize, setDisplayObjectSize] = useState(true);
   const [quotesOnKeys, setQuotesOnKeys] = useState(true);
 
-  const currentScheme = schemes[scheme];
+  const currentScheme = base16schemes[scheme];
 
   useEffect(() => {
     // Update root variables
@@ -60,7 +64,7 @@ export default function Playground(): JSX.Element {
     root.style.setProperty('--base0D', currentScheme.base0D);
     root.style.setProperty('--base0E', currentScheme.base0E);
     root.style.setProperty('--base0F', currentScheme.base0F);
-  }, [scheme]);
+  }, [currentScheme]);
 
   return (
     <>
