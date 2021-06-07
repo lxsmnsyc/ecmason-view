@@ -6,7 +6,6 @@
 
 ![image](https://user-images.githubusercontent.com/4783372/116081677-212c7400-a6cd-11eb-9c9e-11351b652dcb.png)
 
-
 ## Install
 
 ```bash

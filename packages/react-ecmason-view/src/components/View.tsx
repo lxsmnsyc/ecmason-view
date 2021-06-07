@@ -56,7 +56,7 @@ function ViewInternal<T>({ value }: ViewInternalProps<T>): JSX.Element {
     position: 'relative',
     padding: '8px',
     whiteSpace: 'nowrap',
-    overflowX: 'scroll',
+    overflowX: 'auto',
   }), theme);
 
   return (
