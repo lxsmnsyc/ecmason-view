@@ -1,4 +1,4 @@
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React from 'react';
 import { useCreateStyle, useDisplayObjectSize, useTheme } from './ThemeProvider';
 
@@ -10,7 +10,7 @@ function SizeInternal({ value }: SizeProps): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     fontSize: '11px',
     marginRight: '4px',

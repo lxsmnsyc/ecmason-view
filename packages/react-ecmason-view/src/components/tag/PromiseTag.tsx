@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React from 'react';
 import { registerTag } from '../TagRenderer';
 import { useCreateStyle, useTheme } from '../ThemeProvider';
@@ -36,7 +36,7 @@ registerTag(
     const theme = useTheme();
     const createStyle = useCreateStyle();
 
-    const style = useMemoCondition(() => createStyle({
+    const style = useConditionalMemo(() => createStyle({
       display: 'inline-block',
       color: theme.base0A,
       fontWeight: 'bold',

@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React from 'react';
 import Colon from './symbols/Colon';
 import Quote from './symbols/Quote';
@@ -45,7 +45,7 @@ function ArrayKey({ value }: ArrayKeyProps): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base09,
     letterSpacing: '0.5px',
@@ -77,7 +77,7 @@ function ObjectKey({ value }: ObjectKeyProps): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base0B,
     letterSpacing: '0.5px',

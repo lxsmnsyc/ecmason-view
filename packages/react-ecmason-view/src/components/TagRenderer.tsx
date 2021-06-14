@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useConstant, useFreshState, useMemoCondition } from '@lyonph/react-hooks';
+import { useConstant, useFreshState, useConditionalMemo } from '@lyonph/react-hooks';
 import React, { ReactNode } from 'react';
 import Key from './Key';
 import RowContainer from './RowContainer';
@@ -123,7 +123,7 @@ function TagRendererInternal<T>(
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const container = useMemoCondition(() => createStyle({
+  const container = useConditionalMemo(() => createStyle({
     fontFamily: 'monospace',
     cursor: 'default',
     backgroundColor: theme.base00,

@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import { RecursiveRef } from 'ecmason';
 import React from 'react';
 import DataTypeLabel from './DataTypeLabel';
@@ -87,7 +87,7 @@ export default function MetaInfo<T>(
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base0A,
   }), theme);

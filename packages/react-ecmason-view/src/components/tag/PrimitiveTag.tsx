@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React from 'react';
 import DataTypeLabel from '../DataTypeLabel';
 import { registerTag, TagProps } from '../TagRenderer';
@@ -36,7 +36,7 @@ function NumberRenderer({ value }: TagProps<number>): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base09,
   }), theme);
@@ -53,7 +53,7 @@ function BooleanRenderer({ value }: TagProps<boolean>): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base09,
   }), theme);
@@ -70,7 +70,7 @@ function NullRenderer(): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base08,
     fontWeight: 'bold',
@@ -108,7 +108,7 @@ function StringRenderer({ value, expanded }: TagProps<string>) {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base0B,
   }), theme);

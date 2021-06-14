@@ -1,4 +1,4 @@
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React from 'react';
 import { useCreateStyle, useTheme } from '../ThemeProvider';
 
@@ -6,7 +6,7 @@ export default function Colon(): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     margin: '0px 5px',
     color: theme.base05,

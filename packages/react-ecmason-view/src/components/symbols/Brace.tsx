@@ -1,4 +1,4 @@
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React from 'react';
 import { useCreateStyle, useTheme } from '../ThemeProvider';
 
@@ -11,7 +11,7 @@ export default function Brace({ value, indent }: BraceProps): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     display: 'inline-block',
     color: theme.base05,
     fontWeight: 'bold',

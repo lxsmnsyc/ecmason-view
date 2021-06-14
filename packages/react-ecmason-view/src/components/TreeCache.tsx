@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useForceUpdate, useMemoCondition } from '@lyonph/react-hooks';
+import { useForceUpdate, useConditionalMemo } from '@lyonph/react-hooks';
 import React, { ReactNode } from 'react';
 
 import {
@@ -62,7 +62,7 @@ interface TreeCacheProps {
 function RootTreeCache(
   { name, children }: TreeCacheProps,
 ) {
-  const memory = useMemoCondition(() => new Map<string, any>(), name);
+  const memory = useConditionalMemo(() => new Map<string, any>(), name);
   const forceUpdate = useForceUpdate();
 
   return (
@@ -81,7 +81,7 @@ function ChildTreeCache(
 ) {
   const parent = useTreeCache();
 
-  const memory = useMemoCondition(() => {
+  const memory = useConditionalMemo(() => {
     const cached = parent.memory.get(name);
 
     if (cached) {

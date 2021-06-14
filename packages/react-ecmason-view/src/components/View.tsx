@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import { serialize } from 'ecmason';
 import React from 'react';
 import { TagRenderer } from './TagRenderer';
@@ -49,7 +49,7 @@ function ViewInternal<T>({ value }: ViewInternalProps<T>): JSX.Element {
   const theme = useTheme();
   const createStyle = useCreateStyle();
 
-  const container = useMemoCondition(() => createStyle({
+  const container = useConditionalMemo(() => createStyle({
     fontFamily: 'monospace',
     cursor: 'default',
     backgroundColor: theme.base00,

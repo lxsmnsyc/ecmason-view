@@ -25,7 +25,7 @@
  * @author Alexis Munsayac <alexis.munsayac@gmail.com>
  * @copyright Alexis Munsayac 2021
  */
-import { useMemoCondition } from '@lyonph/react-hooks';
+import { useConditionalMemo } from '@lyonph/react-hooks';
 import React, { ReactNode } from 'react';
 import { useTheme, useCreateStyle, useIndentSize } from './ThemeProvider';
 
@@ -38,7 +38,7 @@ export default function RowContainer({ children }: RowContainerProps): JSX.Eleme
   const createStyle = useCreateStyle();
   const indentSize = useIndentSize();
 
-  const style = useMemoCondition(() => createStyle({
+  const style = useConditionalMemo(() => createStyle({
     paddingTop: '3px',
     paddingBottom: '3px',
     paddingRight: '5px',
