@@ -57,14 +57,14 @@ importers:
       pridepack: ^1.1.1
       react: ^18.1.0
       react-dom: ^18.1.0
-      react-scoped-model: ^3.0.0
+      react-scoped-model: ^3.0.1
       tslib: ^2.4.0
       typescript: ^4.7.2
     dependencies:
       '@lyonph/react-hooks': 0.6.0_react@18.1.0
       cxs: 6.2.0
       ecmason: 0.3.1
-      react-scoped-model: 3.0.0_react@18.1.0
+      react-scoped-model: 3.0.1_react@18.1.0
     devDependencies:
       '@types/cxs': 6.2.1
       '@types/node': 17.0.38
@@ -5562,8 +5562,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-scoped-model/3.0.0_react@18.1.0:
-    resolution: {integrity: sha512-ECNuAwlmW2UPgSdr2Cn0fU1PDPx8RHFAVB3IofYFXuEe4udGVWIVh2wqgNeG+yDFz8zRyEjaoJCWauXuBCQlOA==}
+  /react-scoped-model/3.0.1_react@18.1.0:
+    resolution: {integrity: sha512-8suubZpSWVtbnrl2AG6cJU5Qosjx+VvBmOl9/YMN2lIq3igl9KaiCJ+9GfFDFYlu90JmDdyO30TIrAQN3iyLHQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0

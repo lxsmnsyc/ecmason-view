@@ -77,7 +77,7 @@
     "@lyonph/react-hooks": "^0.6.0",
     "cxs": "^6.2.0",
     "ecmason": "^0.3.1",
-    "react-scoped-model": "^3.0.0"
+    "react-scoped-model": "^3.0.1"
   },
   "description": "React component for inspecting modern ES objects",
   "repository": {

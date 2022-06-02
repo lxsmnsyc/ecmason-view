@@ -28,5 +28,6 @@
 import './custom-transformers';
 import './components/tag';
 
+export { default as setupTransformers } from './custom-transformers';
 export * as styles from './ssr';
 export { default as View } from './components/View';

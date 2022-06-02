@@ -19,7 +19,9 @@ yarn add react-ecmason-view
 ## Usage
 
 ```tsx
-import { View } from 'react-ecmason-view';
+import { View, setupTransformers } from 'react-ecmason-view';
+
+setupTransformers();
 
 // Supports Map
 const a = new Map([
